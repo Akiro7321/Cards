@@ -1,11 +1,26 @@
-.card{
+.card {
     width: 200px;
     border-radius: 10px;
+    height: 280px;
 }
 
-.flex-container{
+.flex-container {
     display: flex;
     height: 95vh;
     justify-content: center;
     align-items: center;
+}
+
+.flip {
+    animation-name: flip;
+    animation-duration: 2s;
+}
+
+/* animation*/
+@keyframes flip {
+    0%  {height: 280px; width: 200px;}
+    20% {height: 310px; width: 220px;}
+    40% {height: 310px; width: 0px;}
+    60% {height: 310px; width: 220px;}
+    80%{height: 280px; width: 200px;}
 }
