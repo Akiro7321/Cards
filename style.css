@@ -11,6 +11,15 @@
     align-items: center;
 }
 
+.card-container{
+    width: 200px;
+    height: 280px;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .flip {
     animation-name: flip;
     animation-duration: 2s;

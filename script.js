@@ -1,8 +1,18 @@
 //let card = document.getElementsByClassName("card");
 
-let card = document.querySelector(".card");
 
-card.addEventListener("click", function(){
+let currentCard;
+
+
+//event listener(click to flip) to each card
+const cards = document.querySelectorAll(".card")
+cards.forEach(Element => {
+    Element.addEventListener("click", function(){flip(Element)})
+})
+
+//flip function
+function flip(currentCard){
+    let card = currentCard;
     if(!card.classList.contains("flip")) {
         card.classList.add("flip");
         setTimeout(function(){
@@ -12,6 +22,5 @@ card.addEventListener("click", function(){
             card.src="sprites/front.png"
         }, 800);
         setTimeout(function(){card.classList.remove("flip")}, 1500)
-
     }
-})
+}
