@@ -1,17 +1,52 @@
-.card {
-    width: 200px;
-    border-radius: 10px;
-    height: 280px;
+body {
+    background-image: url(https://img.freepik.com/free-vector/poker-table-background-green-color_47243-1068.jpg?w=1480)
 }
 
-.flex-container {
+
+.sidebar {
     display: flex;
+    width: 200px;
+    justify-content: center;
+}
+
+.btn-container {
+    justify-content: center;
+    width: 100px;
+    height: 50px;
+    display:flex;
+    margin-top: 150px;
+}
+.resetBtn {
+    width: 100px;
+    background-color: #01985e;
+    color: white;
+    font-size: 1.5rem;
+    border: none;
+    border-radius: 4px;
+}
+
+.content-container{
     height: 95vh;
+    display: flex;
+    width: 1600px;
     justify-content: center;
     align-items: center;
 }
 
-.card-container{
+.content {
+    display: flex;
+    flex-wrap: wrap;
+    width: 1200px;
+    align-items: center;
+}
+
+.flex-container {
+    display: flex;
+    margin: 0;
+}
+
+
+.card-container {
     width: 200px;
     height: 280px;
     padding: 20px;
@@ -19,6 +54,12 @@
     justify-content: center;
     align-items: center;
 }
+.card {
+    width: 160px;
+    border-radius: 10px;
+    height: 240px;
+}
+
 .flip {
     animation-name: flip;
     animation-duration: 2s;
@@ -26,9 +67,9 @@
 
 /* animation*/
 @keyframes flip {
-    0%  {height: 280px; width: 200px;}
-    20% {height: 310px; width: 220px;}
-    40% {height: 310px; width: 0px;}
-    60% {height: 310px; width: 220px;}
-    80% {height: 280px; width: 200px;}
+    0%  {height: 240px; width: 160px;}
+    20% {height: 288px; width: 192px;}
+    40% {height: 288px; width: 0px;}
+    60% {height: 288px; width: 192px;}
+    80% {height: 240px; width: 160px;}
 }

@@ -1,16 +1,23 @@
 //let card = document.getElementsByClassName("card");
 let currentCard;
-let card_object = []
+let card_object = [];
+const cards = document.querySelectorAll(".card");
+
+const butt = document.querySelector(".resetBtn");
 
 
-const cards = document.querySelectorAll(".card")
 
-function assignCard(){
-    let randomNum = Math.floor(Math.random() * 51);
-    card.src= card_object[randomNum].src;
+
+//all cards face down
+function shutCard() {
+    cards.forEach(Element => {
+        console.log(Element.getAttribute("src"));
+        if(Element.getAttribute("src") != "sprites/back.png"){
+            flipB(Element);
+        }
+    })
 }
-
-
+butt.addEventListener("click", shutCard)
 
 //naming numbering and adding src to each card
 let n = 1;
@@ -44,36 +51,46 @@ for (let index = 0; index < 52; index++) {
         src: "spades_" + n + ".png"
         }
     }
-    console.log(n + ", " + card_object[index].src)
     if(n < 13){
         n++;
     }else {
         n = 1;
     }
-    
 }
 
 //event listener(click to flip) to each card
+//cardSrc assignment
 cards.forEach(Element => {
     Element.addEventListener("click", function(){flip(Element)})
     let randomNum = Math.floor(Math.random() * 51);
     let usedCard = card_object[randomNum];
     let cardSrc = "sprites/front/" + usedCard.src;
-    Element.src= cardSrc
-    Element.id = cardSrc
+    Element.src = "sprites/back.png";
+    Element.id = cardSrc;
 })
 
 //flip function
 function flip(currentCard){
     let card = currentCard;
-    if(!card.classList.contains("flip")) {
+    if(!card.classList.contains("flip") && !card.src.includes(card.id)) {
         card.classList.add("flip");
         setTimeout(function(){
-            if(card.src.includes(card.id)) {
-                card.src="sprites/back.png"
-            } else
-            card.src= card.id
+                card.src= card.id
         }, 800);
         setTimeout(function(){card.classList.remove("flip")}, 1500)
     }
+}
+//flip back
+function flipB(currentCard){
+    let card = currentCard;
+    if(!card.classList.contains("flip")){
+        card.classList.add("flip");
+
+        setTimeout(function(){
+            if(card.src.includes(card.id)) {
+                card.src="sprites/back.png"
+            }
+        }, 800);
+    }
+    setTimeout(function(){card.classList.remove("flip")}, 1500)
 }
